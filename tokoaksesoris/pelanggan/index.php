@@ -28,77 +28,44 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
             width: 800px;
             margin: auto;
         }
-    </style>
-    <!-- javascript -->
-    <script>
-        function confirmDelete(id) {
-            if (confirm("Apakah kamu yakin ingin menghapusnya?")) { // pop up  peringatan data yang akan dihapus
-                window.location.href = "delete.php?id=" + id;
-            }
+
+        .judul {
+            margin-top: 50px;
+            color: #0c2485;
         }
-    </script>
+    </style>
     <!-- jquerry -->
+    <!-- TB Pelanggan -->
     <script>
         $(document).ready(function() {
             $('#table-pelanggan').DataTable();
         });
     </script>
-    <!-- javascript -->
-    <script>
-        function confirmDelete(id) {
-            if (confirm("Apakah kamu yakin ingin menghapusnya?")) { // pop up  peringatan data yang akan dihapus
-                window.location.href = "delete_pesanan.php?id=" + id;
-            }
-        }
-    </script>
-
-    </script>
-    <!-- jquerry -->
+    <!-- TB Pesanan-->
     <script>
         $(document).ready(function() {
             $('#table-pesanan').DataTable();
         });
     </script>
-    <!-- barang -->
-    <script>
-        function confirmDelete(id) {
-            if (confirm("Apakah kamu yakin ingin menghapusnya?")) { // pop up  peringatan data yang akan dihapus
-                window.location.href = "delete_barang.php?id=" + id;
-            }
-        }
-    </script>
-
-    </script>
-    <!-- jquerry -->
+    <!-- TB barang -->
     <script>
         $(document).ready(function() {
             $('#table-barang').DataTable();
         });
     </script>
-     <!-- kategori -->
-     <script>
-        function confirmDelete(id) {
-            if (confirm("Apakah kamu yakin ingin menghapusnya?")) { // pop up  peringatan data yang akan dihapus
-                window.location.href = "delete_kategori.php?id=" + id;
-            }
-        }
-    </script>
-
-    </script>
-    <!-- jquerry -->
+    <!-- TB kategori -->
     <script>
         $(document).ready(function() {
             $('#table-kategori').DataTable();
         });
     </script>
-     <!-- detail pesanan -->
-     <script>
+    <!-- TB detail pesanan -->
+    <script>
         function confirmDelete(id) {
             if (confirm("Apakah kamu yakin ingin menghapusnya?")) { // pop up  peringatan data yang akan dihapus
                 window.location.href = "delete_detail_pesanan.php?id=" + id;
             }
         }
-    </script>
     </script>
     <!-- jquerry -->
     <script>
@@ -109,13 +76,11 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
 </head>
 
 <body>
-    <h2 style="text-align: center; font-family:'Times New Roman'; color: white; "><u> <br>Toko Sembako Murah</u> </h2>
-    <p style="text-align: center; color: skyblue;">Selamat Datang Di Toko Sembako Murah</p>
-    <p style="padding-left: 170px; color: white;"><b><i><br>Tabel customer</i></b></p>
-    <!-- button tambah -->
+    <!-- Tabel pelanggan -->
+    <center>
+        <h2 class="judul">DATA PELANGGAN</h2>
+    </center>
     <p style="padding-left: 170px;"><a class="btn btn-primary btn-sm" href="tambah.php" role="button">Tambah Data </a> </p>
-
-    <!-- tabel customer -->
     <div style="width:1200px; margin:0 auto;">
         <table id="table-pelanggan" class="table table-striped-columns">
             <thead>
@@ -148,7 +113,7 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
                             <td style="background-color: #9ea6a7;"><?php echo $data['email']; ?></td>
                             <td align="center">
                                 <a href="edit.php?id=<?php echo $data['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $data['id']; ?>);" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="delete.php?id=<?php echo $data['id']; ?>" onclick="alert('Apakah mau dihapus?')" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -159,11 +124,10 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
     </div>
 
     <!-- pesanan -->
-    <p style="padding-left: 170px; color: white;"><b><i><br>Tabel customer</i></b></p>
-    <!-- button tambah -->
+    <center>
+        <h2 class="judul">DATA PESANAN</h2>
+    </center>
     <p style="padding-left: 170px;"><a class="btn btn-primary btn-sm" href="tambah_pesanan.php" role="button">Tambah Data </a> </p>
-
-    <!-- tabel customer -->
     <div style="width:800px; margin:0 auto;">
         <table id="table-pesanan" class="table table-striped-columns">
             <thead>
@@ -186,7 +150,7 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
                             <td style="background-color: #9ea6a7;"><?php echo $pesanan['pelanggan_id']; ?></td>
                             <td align="center">
                                 <a href="edit_pesanan.php?id=<?php echo $pesanan['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $pesanan['id']; ?>);" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="delete_pesanan.php?id=<?php echo $pesanan['id']; ?>" onclick="alert('Apakah mau dihapus?')" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -197,10 +161,10 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
     </div>
 
     <!-- barang -->
-    <p style="padding-left: 170px; color: white;"><b><i><br>Tabel customer</i></b></p>
-    <!-- button tambah -->
+    <center>
+        <h2 class="judul">DATA BARANG</h2>
+    </center>
     <p style="padding-left: 170px;"><a class="btn btn-primary btn-sm" href="tambah_barang.php" role="button">Tambah Data </a> </p>
-    <!-- tabel customer -->
     <div style="width:1000px; margin:0 auto;">
         <table id="table-barang" class="table table-striped-columns">
             <thead>
@@ -225,13 +189,13 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
                         <tr>
                             <td style="background-color: #9ea6a7; text-align: center;"><?php echo $barang['id']; ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $barang['nama_barang']; ?></td>
-                            <td style="background-color: #9ea6a7;"><?php echo $barang['harga']; ?></td>
+                            <td style="background-color: #9ea6a7;"><?php echo "Rp" . number_format($barang['harga']); ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $barang['stok']; ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $barang['penilaian']; ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $barang['kategori_id']; ?></td>
                             <td align="center">
                                 <a href="edit_barang.php?id=<?php echo $barang['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $barang['id']; ?>);" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="delete_barang.php?id=<?php echo $barang['id']; ?>" onclick="alert('Apakah mau dihapus?')" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -241,12 +205,11 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
         </table>
     </div>
 
-     <!-- kategori -->
-     <p style="padding-left: 170px; color: white;"><b><i><br>Tabel customer</i></b></p>
-    <!-- button tambah -->
+    <!-- kategori -->
+    <center>
+        <h2 class="judul">DATA KATEGORI</h2>
+    </center>
     <p style="padding-left: 170px;"><a class="btn btn-primary btn-sm" href="tambah_kategori.php" role="button">Tambah Data </a> </p>
-
-    <!-- tabel customer -->
     <div style="width:800px; margin:0 auto;">
         <table id="table-kategori" class="table table-striped-columns">
             <thead>
@@ -267,7 +230,7 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
                             <td style="background-color: #9ea6a7;"><?php echo $kategori['nama_kategori']; ?></td>
                             <td align="center">
                                 <a href="edit_kategori.php?id=<?php echo $kategori['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $kategori['id']; ?>);" class="btn btn-danger btn-sm">Delete</a>
+                                <a href="delete_kategori.php?id=<?php echo $kategori['id']; ?>" onclick="alert('Apakah mau dihapus?')" class="btn btn-danger btn-sm">Delete</a>
                             </td>
                         </tr>
                     <?php
@@ -277,12 +240,9 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
         </table>
     </div>
 
- <!-- pesanan -->
- <p style="padding-left: 170px; color: white;"><b><i><br>Tabel customer</i></b></p>
-    <!-- button tambah -->
+    <!-- pesanan -->
+    <center><h2 class="judul">DETAIL PESANAN</h2> </center>
     <p style="padding-left: 170px;"><a class="btn btn-primary btn-sm" href="tambah_detail_pesanan.php" role="button">Tambah Data </a> </p>
-
-    <!-- tabel customer -->
     <div style="width:800px; margin:0 auto;">
         <table id="table-detail" class="table table-striped-columns">
             <thead>
@@ -299,14 +259,14 @@ $dp = mysqli_query($connection, "SELECT * FROM detail_pesanan");
                 <?php if (mysqli_num_rows($dp)) {
                 ?>
                     <?php
-                    while ($detail_pesanan= mysqli_fetch_array($dp)) {
+                    while ($detail_pesanan = mysqli_fetch_array($dp)) {
                     ?>
                         <tr>
                             <td style="background-color: #9ea6a7; text-align: center;"><?php echo $detail_pesanan['id']; ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $detail_pesanan['pesanan_id']; ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $detail_pesanan['barang_id']; ?></td>
                             <td style="background-color: #9ea6a7;"><?php echo $detail_pesanan['jumlah_barang']; ?></td>
-                            <td style="background-color: #9ea6a7;"><?php echo $detail_pesanan['total_pesanan']; ?></td>
+                            <td style="background-color: #9ea6a7;"><?php echo "Rp" . number_format($detail_pesanan['total_pesanan']); ?></td>
                             <td align="center">
                                 <a href="edit_detail_pesanan.php?id=<?php echo $detail_pesanan['id']; ?>" class="btn btn-warning btn-sm">Edit</a>
                                 <a href="javascript:void(0);" onclick="confirmDelete(<?php echo $detail_pesanan['id']; ?>);" class="btn btn-danger btn-sm">Delete</a>

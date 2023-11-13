@@ -64,7 +64,7 @@ foreach ($detail_pesanan as $detail_pesanan) {
                 <td>
                    Total Pesanan
                 </td>
-                <td><input type="number" class="form-control" name="total_pesanan" value="<?php echo $jumlah_barang; ?>"></td>
+                <td><input type="number" class="form-control" name="total_pesanan" value="<?php echo $total_pesanan; ?>"></td>
             </tr>
             <td></td>
             <td> <input type="submit" name="submit" value="submit" class="btn btn-primary btn-sm"></td>
